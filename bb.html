@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Feliz Cumpleaños!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" defer></script>
+  <link rel="stylesheet" href="bb.css">
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    });
+  </script>
+  
+</head>
+<body>
+  <div class="confetti-container" id="confetti"></div>
+
+  <div class="cumple-container">
+    <h2 class="subtitulo">¡Para el amor de mi vida! 💖</h2>
+    <div class="pastel">🎂✨🍓</div>
+    <div class="globos">
+      <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    </div>
+    <div class="corazones">
+      <span>❤️</span><span>💖</span><span>💖</span><span>❤️</span>
+    </div>
+    <h1 class="titulo">¡Feliz <span class="resaltado">17º</span> Cumpleaños!</h1>
+    <p class="mensaje">Cumple muchos mas mi amor, lucha por todos tus sueños 🎉💻</p>
+    <button class="boton-fiesta" onclick="iniciarConfetti()">💥 ¡A celebrar!</button>
+  </div>
+
+  <script>
+    function iniciarConfetti() {
+      const contenedor = document.getElementById('confetti');
+      for (let i = 0; i < 120; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.top = `-10px`;
+        confetti.style.opacity = '0.9';
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        confetti.style.borderRadius = '50%';
+        confetti.style.animation = 'caer 4s ease-out forwards';
+        contenedor.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
